@@ -1,0 +1,14 @@
+N_PARAM: 100
+N_DATA : 100
+SIN: 4
+Effective Dimension: {
+  Points from: 0,
+  Points to: 1000000,
+  Points step: 100,
+  Gamma: 1.0,
+}
+USE_GPU: false
+Model: {
+Name: DNN_abbas,
+  Layers: [4,4,4,2],
+}
