@@ -41,15 +41,18 @@ int main(int argc, char** argv)
 	std::for_each(EXEC,xs.begin(),xs.end(),[&N_DATA,&SIN](auto &item){
 			item= torch::randn({N_DATA,SIN});
 			});
-
+	std::cout<<"Calculating the Fisher Matrix"<<std::endl;
 	auto FM=statistical::get_Fisher_Matrix<MODEL>(models,xs);
 
+	std::cout<<"Normalizing Fisher Matrix Spectrum"<<std::endl;
 	auto NFME=statistical::get_Normalized_Fisher_eig(FM);
 
 	auto Ave_NFME=torch::sum(NFME,0)/NFME.size(0);
 
 	PRINTT(Ave_NFME,"Tensor(D_PHI)")
 		std::ofstream spec("Spectrum.txt");
+
+	std::cout<<"Printing the Average Spectrum to Spectrum.txt"<<std::endl;
 	spec<<Ave_NFME;
 	spec.close();
 
@@ -59,10 +62,12 @@ int main(int argc, char** argv)
 	const auto Gamma=(config["Effective Dimension"])["Gamma"].as<double>();
 
 	auto points=torch::arange(npoints_from,npoints_To,npoints_Step);
+	std::cout<<"Calculating the effective dimension "<<std::endl;
 	auto Effec=statistical::get_Effective_Dimension(NFME,points,Gamma);
 
 	std::ofstream Effect("Effect_dime.txt");
 	std::ofstream npo("Effect_dime_x.txt");
+	std::cout<<"Printing the Effective Dimension to Effect_dime.."<<std::endl;
 	Effect<<Effec;
 	npo<<points;
 	Effect.close();
