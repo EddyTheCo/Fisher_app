@@ -26,15 +26,16 @@ int main(int argc, char** argv)
 	}
 	torch::Device device(device_type);
 
-	at::set_default_dtype(caffe2::TypeMeta::Make<double>());
+	at::set_default_dtype(caffe2::TypeMeta::Make<float>());
 
 	const auto N_PARAM=config["N_PARAM"].as<int64_t>();
 	const auto N_DATA=config["N_DATA"].as<int64_t>();
 	const auto SIN=config["SIN"].as<int64_t>();
 	
 	auto models=std::vector<MODEL>(N_PARAM,nullptr);
-	std::for_each(EXEC,models.begin(),models.end(),[&config](auto &item){
+	std::for_each(EXEC,models.begin(),models.end(),[&config,&device](auto &item){
 			item=MODEL(config["Model"]);
+			item->to(device);
 			});
 
 	std::vector<torch::Tensor> xs(N_PARAM);
