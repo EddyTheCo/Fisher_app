@@ -89,3 +89,14 @@ target_compile_features(fisher_app PUBLIC cxx_std_17)
 install(TARGETS fisher_app DESTINATION bin)
 install(DIRECTORY INPUT DESTINATION .)
 install(DIRECTORY gnuplot DESTINATION .)
+execute_process(COMMAND "git" "log" "--format='%H'" "-n 1"
+        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+        OUTPUT_VARIABLE  commit)
+execute_process(COMMAND "git" "rev-parse" "--abbrev-ref" "HEAD" 
+        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+        OUTPUT_VARIABLE  branch)
+
+FILE(WRITE ${CMAKE_CURRENT_BINARY_DIR}/.${PROJECT_NAME}.txt  ${PROJECT_NAME}:\n)
+FILE(APPEND ${CMAKE_CURRENT_BINARY_DIR}/.${PROJECT_NAME}.txt  \t commit=${commit})
+FILE(APPEND ${CMAKE_CURRENT_BINARY_DIR}/.${PROJECT_NAME}.txt  \t branch=${branch}\n)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/.${PROJECT_NAME}.txt DESTINATION .conf)
