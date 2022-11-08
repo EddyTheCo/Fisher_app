@@ -43,4 +43,13 @@ To reproduce the results from the paper one could use the gnuplot scripts like:
 ```
 gnuplot gnuplot/effectiveD.gnu
 gnuplot gnuplot/eig_distr.gnu
-```   
+```  
+When trying to reproduce the results of the paper the obtained results were
+
+Quantum neural network -> ![[Eigen Values Distribution]](Results/QNN_eig_dist.eps) ![[Effective Dimension]](Results/QNN_eff_dim.eps)
+
+ 
+Easy quantum model -> ![[Eigen Values Distribution]](Results/EQM_eig_dist.eps) ![[Effective Dimension]](Results/EQM_eff_dim.eps)
+
+ 
+Classical neural network -> ![[Eigen Values Distribution]](Results/DNN_eig_dist.eps) ![[Effective Dimension]](Results/DNN_eff_dim.eps) 
