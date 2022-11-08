@@ -14,7 +14,7 @@ It uses [yaml](https://github.com/jbeder/yaml-cpp) [input files](INPUT) for the 
 
 |name|values|description|
 |----|------|-----------|
-|MODEL|DNN_abbas,MPS ..|The torch module to use as a statistical model and calculate the Fisher Information Matrix. One can create custom modules and add it to the namespace custom_models.|
+|MODEL|DNN_abbas,EQM_abbas,QNN_abbas ..|The torch module to use as a statistical model and calculate the Fisher Information Matrix. One can create custom modules and add it to the namespace custom_models.|
 
 ## Install and Execute
 
