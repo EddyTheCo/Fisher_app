@@ -46,10 +46,22 @@ gnuplot gnuplot/eig_distr.gnu
 ```  
 When trying to reproduce the results of the paper the obtained results were
 
-Quantum neural network -> ![[Eigen Values Distribution]](Results/QNN_eig_dist.eps) ![[Effective Dimension]](Results/QNN_eff_dim.eps)
+**Quantum neural network**
+
+
+<img src="Results/QNN_eig_dist.png" title="Eigen Values Distribution" alt="Eigen Values Distribution" width="500"/>
+<img src="Results/QNN_eff_dim.png" title="Effective Dimension" alt="Effective Dimension" width="500"/>
 
  
-Easy quantum model -> ![[Eigen Values Distribution]](Results/EQM_eig_dist.eps) ![[Effective Dimension]](Results/EQM_eff_dim.eps)
+**Easy quantum model**
+
+
+<img src="Results/EQM_eig_dist.png" title="Eigen Values Distribution" alt="Eigen Values Distribution" width="500"/>
+<img src="Results/EQM_eff_dim.png" title="Effective Dimension" alt="Effective Dimension" width="500"/>
 
  
-Classical neural network -> ![[Eigen Values Distribution]](Results/DNN_eig_dist.eps) ![[Effective Dimension]](Results/DNN_eff_dim.eps) 
+**Classical neural network** 
+
+
+<img src="Results/DNN_eig_dist.png" title="Eigen Values Distribution" alt="Eigen Values Distribution" width="500"/>
+<img src="Results/DNN_eff_dim.png" title="Effective Dimension" alt="Effective Dimension" width="500"/>
